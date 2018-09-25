@@ -1,0 +1,17 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav class="example-side-nav mat-elevation-z10" 
+    [opened]="!isScreenSmall()" 
+    [mode]="isScreenSmall() ? 'over': 'side'">
+        <mat-toolbar color="primary">Contactcs</mat-toolbar>
+        <mat-list role="list">
+                <mat-list-item role="listitem">Item 1</mat-list-item>
+                <mat-list-item role="listitem">Item 2</mat-list-item>
+                <mat-list-item role="listitem">Item 3</mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="example-side-nav-content">
+        <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+        <router-outlet></router-outlet>
+        <!-- <button mat-button (click)="sidenav.toggle()">Toggle</button> -->
+    </mat-sidenav-content>
+</mat-sidenav-container>
