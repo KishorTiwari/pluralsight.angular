@@ -1,0 +1,18 @@
+$icon-width : 100px;
+
+.property-container{
+    margin: 10px 0px;
+}
+.mat-icon-samples{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.mat-icon-samples mat-icon{
+    width: $icon-width;
+    height: $icon-width;
+    padding: 1em 1em;
+}
+

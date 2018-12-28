@@ -1,1 +1,61 @@
-<mat-card>Simple card</mat-card>
+<!-- <div *ngIf="!properties">
+    <mat-spinner></mat-spinner>
+</div> -->
+<div *ngIf="properties">
+    <mat-card *ngFor="let p of properties" class="property-container">
+        <mat-card-title>{{p.title}}</mat-card-title>
+        <mat-card-subtitle>Listed {{p.listed}}</mat-card-subtitle>
+        <mat-card-content>
+            <div class="featured-image"></div>
+            <div class="property-content" *ngFor="let c of p.contacts">{{c.firstName}}</div>
+            <div>Property Id: {{p.id}}</div>
+        </mat-card-content>
+        <mat-card-footer>
+            <a [routerLink]="['/contactmanager', p.id]" routerLinkActive="router-link-active" ><mat-icon color="primary">message</mat-icon></a>
+        </mat-card-footer>
+    </mat-card>
+    <!-- <div class="mat-icon-samples">
+        <mat-icon svgIcon="Layer_1" color="primary"></mat-icon>
+        <mat-icon svgIcon="svg-2"></mat-icon>
+        <mat-icon svgIcon="svg-3"></mat-icon>
+        <mat-icon svgIcon="svg-4"></mat-icon>
+        <mat-icon svgIcon="svg-5"></mat-icon>
+        <mat-icon svgIcon="svg-6"></mat-icon>
+        <mat-icon svgIcon="svg-7"></mat-icon>
+        <mat-icon svgIcon="svg-8"></mat-icon>
+        <mat-icon svgIcon="svg-9"></mat-icon>
+        <mat-icon svgIcon="svg-10"></mat-icon>
+        <mat-icon svgIcon="svg-11"></mat-icon>
+        <mat-icon svgIcon="svg-12"></mat-icon>
+        <mat-icon svgIcon="svg-13"></mat-icon>
+        <mat-icon svgIcon="svg-14"></mat-icon>
+        <mat-icon svgIcon="svg-15"></mat-icon>
+        <mat-icon svgIcon="svg-16"></mat-icon>
+    </div> -->
+</div>
+
+<div>
+    <input type="file" (change)="fileChangeEvent($event)" />
+    <!-- cropping images
+        https://www.npmjs.com/package/ngx-image-cropper -->
+    <!-- compression on server side
+        https://github.com/dlemstra/Magick.NET/ -->
+<image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 3"
+    [resizeToWidth]="128"
+    format="png"
+    (imageCroppedBase64)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+
+<img [src]="croppedImage" />
+</div>
+
+
+
+
+
+

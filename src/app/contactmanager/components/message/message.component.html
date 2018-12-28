@@ -1,0 +1,16 @@
+<!-- <div *ngIf="!messages" style="position: fixed; top:0;left:0;right:0;">
+  <mat-progress-bar color="green" mode="indeterminate"></mat-progress-bar>
+</div> -->
+<div *ngIf="messages">
+ <mat-card *ngFor="let m of messages">
+   <mat-card-header>
+    {{m.dateSent}}
+   </mat-card-header>
+   <mat-card-content>
+    {{m.description}}
+   </mat-card-content>
+   <mat-card-footer>
+    {{m.senderId}}
+   </mat-card-footer>
+ </mat-card>
+</div>
